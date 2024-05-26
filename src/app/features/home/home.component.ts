@@ -33,11 +33,11 @@ export class HomeComponent implements OnInit{
     this.store.dispatch(loadCryptoPrices());
 
     this.prices$.subscribe(prices => {
-      this.getHighestPrice(prices);
+      this.getPrices(prices);
     })
   }
 
-  getHighestPrice(prices: { [ symbol: string ] : number } ) {
+  getPrices(prices: { [ symbol: string ] : number } ) {
     for (const symbol of this.symbols) {
       const price  = prices[symbol];
       if (price === undefined || isNaN(price)) {
